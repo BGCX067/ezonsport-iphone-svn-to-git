@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11D2001" minimumToolsVersion="Xcode 4.1" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="UserEntity" representedClassName="UserEntity" syncable="YES">
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="watchSet" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="WatchEntity" inverseName="user" inverseEntity="WatchEntity" syncable="YES"/>
+    </entity>
+    <entity name="WatchEntity" representedClassName="WatchEntity" syncable="YES">
+        <attribute name="watchID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="watchType" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UserEntity" inverseName="watchSet" inverseEntity="UserEntity" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="UserEntity" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="WatchEntity" positionX="160" positionY="192" width="128" height="90"/>
+    </elements>
+</model>

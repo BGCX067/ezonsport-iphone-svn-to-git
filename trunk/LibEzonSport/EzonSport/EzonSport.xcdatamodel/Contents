@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11D2001" minimumToolsVersion="Xcode 4.1" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="SportDataEntity" representedClassName="SportDataEntity" syncable="YES">
+        <attribute name="collectTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="watch" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WatchEntity" inverseName="sportDataSet" inverseEntity="WatchEntity" syncable="YES"/>
+    </entity>
+    <entity name="SportPlanEntity" representedClassName="SportPlanEntity" syncable="YES">
+        <attribute name="goalStep" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="planDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="user" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UserEntity" inverseName="sportPlanSet" inverseEntity="UserEntity" syncable="YES"/>
+    </entity>
+    <entity name="StepDataEntity" representedClassName="StepDataEntity" parentEntity="SportDataEntity" syncable="YES">
+        <attribute name="calorie" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="distance" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="steps" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="UserEntity" representedClassName="UserEntity" syncable="YES">
+        <attribute name="birthDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nickName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="sportPlanSet" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SportPlanEntity" inverseName="user" inverseEntity="SportPlanEntity" syncable="YES"/>
+        <relationship name="watchSet" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="WatchEntity" inverseName="user" inverseEntity="WatchEntity" syncable="YES"/>
+    </entity>
+    <entity name="WatchEntity" representedClassName="WatchEntity" syncable="YES">
+        <attribute name="watchID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="watchType" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sportDataSet" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SportDataEntity" inverseName="watch" inverseEntity="SportDataEntity" syncable="YES"/>
+        <relationship name="user" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="UserEntity" inverseName="watchSet" inverseEntity="UserEntity" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="SportDataEntity" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="SportPlanEntity" positionX="-288" positionY="-72" width="128" height="90"/>
+        <element name="StepDataEntity" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="UserEntity" positionX="160" positionY="192" width="128" height="195"/>
+        <element name="WatchEntity" positionX="160" positionY="192" width="128" height="90"/>
+    </elements>
+</model>
